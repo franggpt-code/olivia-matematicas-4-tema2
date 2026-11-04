@@ -25,100 +25,103 @@
 <body class="flex flex-col min-h-screen text-slate-800 antialiased selection:bg-amber-200">
 
   <!-- =========================================================================
-       BARRA DE NAVEGACIÓN SUPERIOR
+       BARRA DE NAVEGACIÓN SUPERIOR FIJA (CABECERA OPAQUE)
        ========================================================================= -->
-  <header class="no-print sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-amber-200/80 shadow-xs">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-      
-      <!-- Logo y Título -->
-      <div class="flex items-center gap-3 cursor-pointer" onclick="app.navigate('home')">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center text-2xl shadow-md text-white">
-          🧁
-        </div>
-        <div>
-          <div class="flex items-center gap-2">
-            <span class="font-black text-lg md:text-xl font-display text-slate-900 tracking-tight leading-none">
-              Matemáticas 4.º
-            </span>
-            <span class="px-2 py-0.5 bg-amber-100 text-amber-800 rounded-md text-[10px] font-black uppercase tracking-wider">
-              Tema 2
+  <header class="app-header no-print">
+    <!-- Fila 1: Logo, Aventura y Controles de Usuario -->
+    <div class="header-top-row">
+      <div class="max-w-6xl mx-auto px-4 py-2 flex items-center justify-between gap-2">
+        
+        <!-- Logo y Título -->
+        <div class="flex items-center gap-2 cursor-pointer shrink-0" onclick="app.navigate('home')">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center text-lg shadow-sm text-white">
+            🧁
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5 leading-none">
+              <span class="font-black text-base md:text-lg font-display text-slate-900 tracking-tight">
+                Matemáticas 4.º
+              </span>
+              <span class="px-1.5 py-0.5 bg-amber-100 text-amber-800 rounded text-[10px] font-black uppercase tracking-wider">
+                Tema 2
+              </span>
+            </div>
+            <span class="text-[10px] text-slate-500 font-bold block mt-0.5 hidden sm:inline-block">
+              Suma, Resta, Propiedades y Estimación
             </span>
           </div>
-          <span class="text-xs text-slate-500 font-bold block mt-0.5">
-            Suma, Resta, Propiedades y Estimación
-          </span>
-        </div>
-      </div>
-
-      <!-- Selector de Aventura -->
-      <div class="hidden lg:flex items-center gap-2">
-        <span class="text-xs font-bold text-slate-500">Aventura:</span>
-        <select id="scenario-select" class="p-1.5 px-3 bg-amber-50/80 border border-amber-300 rounded-xl text-xs font-bold text-amber-900 focus:outline-none focus:ring-2 focus:ring-amber-500">
-          <!-- Opciones dinámicas -->
-        </select>
-      </div>
-
-      <!-- Panel de Controles: Estrellas, Alumno, Sonido, Enlace a Tema 1 -->
-      <div class="flex items-center gap-2">
-        <!-- Enlace a Tema 1 -->
-        <a href="../Matematicas/index.html" class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-xl text-blue-700 text-xs font-black transition" title="Ir a Repaso del Tema 1">
-          <span>⬅️</span>
-          <span>Tema 1</span>
-        </a>
-
-        <!-- Estrellas -->
-        <div class="flex items-center gap-1.5 px-3 py-1.5 bg-amber-100/80 border border-amber-300 rounded-2xl text-amber-900 font-black text-xs md:text-sm shadow-2xs" title="Estrellas ganadas">
-          <span class="text-base">⭐</span>
-          <span id="header-stars">0</span>
         </div>
 
-        <!-- Alumno -->
-        <div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 rounded-2xl text-slate-700 text-xs font-bold">
-          <span>👋</span>
-          <span id="header-student-name">Olivia</span>
+        <!-- Selector de Aventura Compacto -->
+        <div class="hidden lg:flex items-center gap-1 bg-amber-50 px-2 py-1 rounded-xl border border-amber-200 shrink">
+          <span class="text-[10px] font-black text-amber-900">Aventura:</span>
+          <select id="scenario-select" class="bg-transparent text-xs font-bold text-amber-950 focus:outline-none cursor-pointer max-w-[210px] truncate">
+            <!-- Opciones dinámicas -->
+          </select>
         </div>
 
-        <!-- Sonido y Voz -->
-        <button id="toggle-sound-btn" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center text-base transition" title="Sonido">
-          🔊
-        </button>
-        <button id="toggle-voice-btn" class="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center text-base transition" title="Lector de voz">
-          🗣️
-        </button>
+        <!-- Panel de Controles: Estrellas, Alumno, Sonido, Enlace a Tema 1 -->
+        <div class="flex items-center gap-1.5 shrink-0">
+          <!-- Enlace a Tema 1 (visible en tablet/desktop) -->
+          <a href="../Matematicas/index.html" class="hidden sm:inline-flex items-center gap-1 px-2 py-1 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-lg text-blue-700 text-xs font-black transition" title="Ir a Repaso del Tema 1">
+            <span>⬅️</span>
+            <span>Tema 1</span>
+          </a>
+
+          <!-- Estrellas -->
+          <div class="flex items-center gap-1 px-2 py-1 bg-amber-100 border border-amber-300 rounded-lg text-amber-900 font-black text-xs shadow-2xs" title="Estrellas ganadas">
+            <span>⭐</span>
+            <span id="header-stars">0</span>
+          </div>
+
+          <!-- Alumno -->
+          <div class="hidden xl:flex items-center gap-1 px-2 py-1 bg-slate-100 rounded-lg text-slate-700 text-xs font-bold">
+            <span>👋</span>
+            <span id="header-student-name">Olivia</span>
+          </div>
+
+          <!-- Sonido y Voz -->
+          <button id="toggle-sound-btn" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center text-xs transition" title="Activar/Desactivar Sonido">
+            🔊
+          </button>
+          <button id="toggle-voice-btn" class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center text-xs transition" title="Activar/Desactivar Lector de Voz">
+            🗣️
+          </button>
+        </div>
       </div>
     </div>
 
-    <!-- Menú de Pestañas con Desplazamiento Horizontal en iPad / Móvil -->
-    <div class="border-t border-slate-100 bg-slate-50/70 overflow-x-auto scrollbar-none px-4 py-2">
-      <nav class="flex items-center gap-1.5 min-w-max mx-auto max-w-6xl">
-        <button class="nav-tab-btn active px-3 py-1.5 rounded-xl text-xs font-black transition" data-target="home">
+    <!-- Fila 2: Menú de Pestañas con Desplazamiento Horizontal Suave -->
+    <div class="header-nav-row overflow-x-auto scrollbar-none py-1 px-2">
+      <nav class="flex items-center gap-1.5 max-w-6xl mx-auto px-2">
+        <button class="nav-tab-btn active shrink-0 px-2.5 py-1 rounded-lg text-xs font-black transition" data-target="home">
           🏠 Inicio
         </button>
-        <button class="nav-tab-btn px-3 py-1.5 rounded-xl text-xs font-black transition" data-target="properties">
+        <button class="nav-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs font-black transition" data-target="properties">
           📝 Misión 1: Propiedades
         </button>
-        <button class="nav-tab-btn px-3 py-1.5 rounded-xl text-xs font-black transition" data-target="combined">
-          🧮 Misión 2: Operaciones Combinadas
+        <button class="nav-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs font-black transition" data-target="combined">
+          🧮 Misión 2: Combinadas
         </button>
-        <button class="nav-tab-btn px-3 py-1.5 rounded-xl text-xs font-black transition" data-target="estimations">
+        <button class="nav-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs font-black transition" data-target="estimations">
           🎯 Misión 3: Estimaciones
         </button>
-        <button class="nav-tab-btn px-3 py-1.5 rounded-xl text-xs font-black transition" data-target="detective">
+        <button class="nav-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs font-black transition" data-target="detective">
           🔍 Misión 4: Detective
         </button>
-        <button class="nav-tab-btn px-3 py-1.5 rounded-xl text-xs font-black transition" data-target="balance">
+        <button class="nav-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs font-black transition" data-target="balance">
           ⚖️ Balanza Táctil
         </button>
-        <button class="nav-tab-btn px-3 py-1.5 rounded-xl text-xs font-black transition" data-target="express">
+        <button class="nav-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs font-black transition" data-target="express">
           ⚡ Desafío Express
         </button>
-        <button class="nav-tab-btn px-3 py-1.5 rounded-xl text-xs font-black transition" data-target="arcade">
+        <button class="nav-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs font-black transition" data-target="arcade">
           👨‍🍳 Arcade Chef
         </button>
-        <button class="nav-tab-btn px-3 py-1.5 rounded-xl text-xs font-black transition" data-target="study">
+        <button class="nav-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs font-black transition" data-target="study">
           📚 Chuleta
         </button>
-        <button class="nav-tab-btn px-3 py-1.5 rounded-xl text-xs font-black transition" data-target="diploma">
+        <button class="nav-tab-btn shrink-0 px-2.5 py-1 rounded-lg text-xs font-black transition" data-target="diploma">
           🎓 Diploma
         </button>
       </nav>
@@ -128,7 +131,7 @@
   <!-- =========================================================================
        CONTENIDO PRINCIPAL DINÁMICO
        ========================================================================= -->
-  <main class="flex-1 max-w-5xl w-full mx-auto p-4 md:p-6 space-y-6">
+  <main class="app-main flex-1 max-w-5xl w-full mx-auto px-4 pb-12 space-y-6">
 
     <!-- -----------------------------------------------------------------------
          PESTAÑA 1: INICIO (HOME)
