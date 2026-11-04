@@ -1,6 +1,6 @@
 {
   "name": "olivia-matematicas-4-tema2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Aplicación interactiva de práctica para el examen de Matemáticas de 4º de primaria · Tema 2: La Suma y la Resta, propiedades, operaciones combinadas y estimaciones",
   "main": "index.html",
   "scripts": {
