@@ -1,0 +1,202 @@
+/* =============================================================================
+   ESTILOS COMPLETOS COMPATIBLES CON IPAD Y NAVEGADORES LEGACY (iOS 12.5.8+)
+   Tema 2 de Matemáticas 4.º · La Suma y la Resta
+   100% CSS puro estándar con soporte WebKit / Safari
+   ============================================================================= */
+
+:root {
+  --font-sans: 'Nunito', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --primary: #d97706; /* Ámbar cálido de panadería / repostería */
+  --primary-dark: #b45309;
+  --secondary: #10b981;
+  --accent: #6366f1;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+html {
+  font-size: 18px; /* Escala base aumentada para lectura clara y cómoda en 4.º de Primaria */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #fffbeb;
+  background-image: linear-gradient(135deg, #fef3c7 0%, #fff7ed 40%, #fdf2f8 100%);
+  color: #1e293b;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* =============================================================================
+   COMPATIBILIDAD FLEX GAP EN SAFARI 12 (iOS 12.5.8)
+   ============================================================================= */
+.gap-1 { gap: 0.25rem; grid-gap: 0.25rem; }
+.gap-1\.5 { gap: 0.375rem; grid-gap: 0.375rem; }
+.gap-2 { gap: 0.5rem; grid-gap: 0.5rem; }
+.gap-2\.5 { gap: 0.625rem; grid-gap: 0.625rem; }
+.gap-3 { gap: 0.75rem; grid-gap: 0.75rem; }
+.gap-4 { gap: 1rem; grid-gap: 1rem; }
+.gap-6 { gap: 1.5rem; grid-gap: 1.5rem; }
+.gap-8 { gap: 2rem; grid-gap: 2rem; }
+
+.flex:not(.flex-col).gap-1 > * + * { margin-left: 0.25rem; }
+.flex:not(.flex-col).gap-1\.5 > * + * { margin-left: 0.375rem; }
+.flex:not(.flex-col).gap-2 > * + * { margin-left: 0.5rem; }
+.flex:not(.flex-col).gap-2\.5 > * + * { margin-left: 0.625rem; }
+.flex:not(.flex-col).gap-3 > * + * { margin-left: 0.75rem; }
+.flex:not(.flex-col).gap-4 > * + * { margin-left: 1rem; }
+.flex:not(.flex-col).gap-6 > * + * { margin-left: 1.5rem; }
+.flex:not(.flex-col).gap-8 > * + * { margin-left: 2rem; }
+
+.flex-col.gap-1 > * + * { margin-top: 0.25rem; }
+.flex-col.gap-2 > * + * { margin-top: 0.5rem; }
+.flex-col.gap-3 > * + * { margin-top: 0.75rem; }
+.flex-col.gap-4 > * + * { margin-top: 1rem; }
+.flex-col.gap-6 > * + * { margin-top: 1.5rem; }
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.space-y-1 > * + * { margin-top: 0.25rem !important; margin-bottom: 0 !important; }
+.space-y-1\.5 > * + * { margin-top: 0.375rem !important; margin-bottom: 0 !important; }
+.space-y-2 > * + * { margin-top: 0.5rem !important; margin-bottom: 0 !important; }
+.space-y-2\.5 > * + * { margin-top: 0.625rem !important; margin-bottom: 0 !important; }
+.space-y-3 > * + * { margin-top: 0.75rem !important; margin-bottom: 0 !important; }
+.space-y-4 > * + * { margin-top: 1rem !important; margin-bottom: 0 !important; }
+.space-y-6 > * + * { margin-top: 1.5rem !important; margin-bottom: 0 !important; }
+.space-y-8 > * + * { margin-top: 2rem !important; margin-bottom: 0 !important; }
+
+/* Tipografía escolar amplia */
+.text-xs { font-size: 0.85rem !important; line-height: 1.35rem !important; }
+.text-sm { font-size: 0.95rem !important; line-height: 1.45rem !important; }
+.text-base { font-size: 1.05rem !important; line-height: 1.6rem !important; }
+.text-\[10px\] { font-size: 0.75rem !important; line-height: 1.15rem !important; }
+.text-\[11px\] { font-size: 0.8rem !important; line-height: 1.2rem !important; }
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: #0f172a !important;
+  background-color: #ffffff !important;
+}
+
+/* Efectos visuales de tarjetas */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+.card-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  transform: rotate(30deg) translateY(-100%);
+  transition: transform 0.6s ease;
+  pointer-events: none;
+}
+.card-shine:hover::after {
+  transform: rotate(30deg) translateY(100%);
+}
+
+/* Animaciones de feedback */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+@keyframes popSuccess {
+  0% { transform: scale(0.9); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+.animate-pop-success {
+  animation: popSuccess 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Resaltado de paréntesis matemáticos */
+.paren-badge {
+  background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+  color: #3730a3;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 900;
+  display: inline-block;
+  border: 1px solid #a5b4fc;
+}
+
+/* Balanza interactiva en SVG / CSS */
+.balance-arm {
+  transform-origin: 150px 45px;
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.balance-arm.tilt-left {
+  transform: rotate(-8deg);
+}
+.balance-arm.tilt-right {
+  transform: rotate(8deg);
+}
+.balance-arm.balanced {
+  transform: rotate(0deg);
+}
+
+/* Selector de pestañas activo */
+.nav-tab-btn.active {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff !important;
+  box-shadow: 0 4px 10px rgba(217, 119, 6, 0.35);
+}
+
+/* Ficha imprimible / chuleta */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt !important;
+  }
+  .printable-area {
+    display: block !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+  .page-break {
+    page-break-after: always;
+  }
+}
