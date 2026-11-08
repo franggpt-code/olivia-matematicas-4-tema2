@@ -137,6 +137,34 @@
          PESTAÑA 1: INICIO (HOME)
          ----------------------------------------------------------------------- -->
     <section id="view-home" class="tab-view space-y-6">
+      
+      <!-- Hero Banner de Bienvenida -->
+      <div class="hero-banner p-6 sm:p-8 relative overflow-hidden">
+        <div class="relative z-10 max-w-2xl">
+          <div class="hero-badge mb-3">
+            <span>🥖</span>
+            <span>¡Hola, Olivia! · Matemáticas 4.º Primaria (Tema 2)</span>
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-black font-display tracking-tight leading-tight mb-2 text-white">
+            La Suma, la Resta y sus Propiedades
+          </h2>
+          <p class="hero-p mb-6">
+            Aprende jugando con la masa base del obrador: propiedad conmutativa y asociativa, cálculo con paréntesis, estimaciones a las centenas y problemas de detective.
+          </p>
+          <div class="flex flex-wrap items-center gap-3">
+            <button onclick="app.navigate('properties')" class="btn-bounce hero-btn-primary px-6 py-3 rounded-2xl text-sm">
+              <span>Empezar Misiones</span> <span>🚀</span>
+            </button>
+            <button onclick="app.navigate('calcMission')" class="btn-bounce hero-btn-secondary px-6 py-3 rounded-2xl text-sm">
+              <span>Simulador de Examen</span> <span>🏆</span>
+            </button>
+          </div>
+        </div>
+        <div class="absolute -right-8 -bottom-8 text-9xl text-white/10 select-none pointer-events-none">
+          🥨
+        </div>
+      </div>
+
       <!-- Banner del Escenario Activo -->
       <div id="scenario-banner"></div>
 
@@ -212,7 +240,7 @@
 
         <div class="p-6 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-3xl text-white shadow-md flex items-center justify-between">
           <div class="space-y-2">
-            <span class="px-2.5 py-0.5 bg-white/20 rounded-lg text-xs font-black uppercase">Prueba Oficial</span>
+            <span class="px-2.5 py-0.5 bg-white/20 rounded-lg text-xs font-black uppercase">Desafío Rápido</span>
             <h4 class="text-xl font-black font-display">Desafío Express (10 Preguntas)</h4>
             <p class="text-xs text-purple-100 max-w-xs">Ponte a prueba con nota sobre 10, confeti y revisión formativa paso a paso.</p>
             <button onclick="app.navigate('express')" class="mt-2 px-4 py-2 bg-white text-purple-800 rounded-xl font-black text-xs shadow-sm hover:bg-purple-50 transition">
