@@ -321,7 +321,7 @@ textarea {
   transform: rotate(0deg);
 }
 
-/* Ficha imprimible / chuleta */
+/* Ficha imprimible / esquemas */
 @media print {
   .no-print, header, footer {
     display: none !important;

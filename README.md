@@ -44,7 +44,7 @@ Basada conceptualmente en el libro y en el modelo de examen oficial (Modelo B y 
 8. **👨‍🍳 Arcade Chef Repostero**
    - Mini-juego rápido contra racha para cálculo mental: amigos del 100, amigos del 1.000, identificación de propiedades y resolución de paréntesis.
 
-9. **📚 Chuleta de Estudio Imprimible**
+9. **📚 Esquemas de Estudio Imprimibles**
    - Resumen visual con tablas, fórmulas y ejemplos listo para imprimir con `Ctrl + P`.
 
 10. **🎓 Diploma Oficial de Honor**
